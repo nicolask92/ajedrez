@@ -5,20 +5,39 @@
         <title>Ajedrez en JavaScript</title>
     </head>
     <body>
-            <div id="container">
+                <div id="container">
 
-            </div>
-        
+                </div>
+            
 
             <script>
-            //Dandole dimensiones y estilos al div container
-            
-            div_principal = document.getElementById("container");
-            div_principal.style.cssText = 'margin:0 auto; background-color: #fafafa; padding: 1rem; max-width: 400px; width: 80%; min-height: 400px; hight: 80%;';
-            // console.log(div_principal);
-            //Creacion del tablero
-                
 
+            //Creando Titulo
+            titulo = document.createElement('h1');
+            document.body.insertBefore(titulo,document.getElementById('container'));
+            titulo.innerHTML = "Ajedrez con JavaScript";
+
+
+            //Dandole dimensiones y estilos al div container y textos
+            titulo.style.cssText = 'text-align:center;';
+            div_principal = document.getElementById("container");
+            div_principal.style.cssText = 'margin:0 auto; background-color: #fafafa; max-width: 400px; width: 80%; min-height: 400px; hight: 80%;';
+
+
+            //Creacion del tablero
+
+            let ancho_largo = container.getBoundingClientRect().width;      //adaptar en el futuro//
+            
+            for(let i=0;i<64;i++){
+                    if(i==7||15||23||31||39||47||55||63){
+                        cuadrado = document.createElement('div');
+                        
+                        cuadrado.style.cssText = ''
+                    }
+                    
+            }
+
+            console.log(ancho_largo);
 
             </script>
 
