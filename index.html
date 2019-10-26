@@ -18,25 +18,89 @@
             titulo.innerHTML = "Ajedrez con JavaScript";
 
 
-            //Dandole dimensiones y estilos al div container y textos
+            //Dandole dimensiones y estilos al div container/tablero principal y textos
             titulo.style.cssText = 'text-align:center;';
             div_principal = document.getElementById("container");
             div_principal.style.cssText = 'margin:0 auto; background-color: #fafafa; max-width: 400px; width: 80%; min-height: 400px; hight: 80%;';
 
 
-            //Creacion del tablero
+            //Creacion de los cuadrados del tablero
 
-            let ancho_largo = container.getBoundingClientRect().width;      //adaptar en el futuro//
+            //  let cuadrado = document.createElement('div');
+            //  cuadrado.className += 'cuadrado';
+
             
-            for(let i=0;i<64;i++){
-                    if(i==7||15||23||31||39||47||55||63){
-                        cuadrado = document.createElement('div');
-                        
-                        cuadrado.style.cssText = ''
-                    }
-                    
-            }
+            let ancho_largo = container.getBoundingClientRect().width;  
+            let anchoen8 = (ancho_largo/8);
+            console.log(anchoen8);    //adaptar en el futuro//
+            //cuadrado.style.cssText ='';
 
+
+
+            for(let i=0;i<64;i++){
+                    cuadrado = document.createElement('div');
+                    cuadrado.className += 'cuadrado';
+                    container.appendChild(cuadrado);
+                    var estilo = document.getElementsByClassName('cuadrado'); 
+                    cuadrado.style.cssText = `width: ${anchoen8}; height: ${anchoen8}; float:left;`;
+                     console.log(estilo[i]);
+                    
+                    if(i<8){
+                        for(let j=0;j<i;j++){
+                            estilo[j].style.cssText += "background-color: #545454";
+                            j++;
+                        }
+                    }
+                    if(i<16){
+                        for(let j=9;j<i+1;j++){
+                            estilo[j].style.cssText += "background-color: #545454";
+                            j++;
+                        }
+                    }
+                    if(i<24){
+                        for(let j=16;j<i+1;j++){
+                            estilo[j].style.cssText += "background-color: #545454";
+                            j++;
+                        }
+                    }
+                    if(i<32){
+                        for(let j=25;j<i+1;j++){
+                            estilo[j].style.cssText += "background-color: #545454";
+                            j++;
+                        }
+                    }
+                    if(i<32){
+                        for(let j=25;j<i+1;j++){
+                            estilo[j].style.cssText += "background-color: #545454";
+                            j++;
+                        }
+                    }
+                    if(i<40){
+                        for(let j=32;j<i+1;j++){
+                            estilo[j].style.cssText += "background-color: #545454";
+                            j++;
+                        }
+                    }
+                    if(i<48){
+                        for(let j=41;j<i+1;j++){
+                            estilo[j].style.cssText += "background-color: #545454";
+                            j++;
+                        }
+                    }
+                    if(i<56){
+                        for(let j=48;j<i+1;j++){
+                            estilo[j].style.cssText += "background-color: #545454";
+                            j++;
+                        }
+                    }
+                    if(i<64){
+                        for(let j=57;j<i+1;j++){
+                            estilo[j].style.cssText += "background-color: #545454";
+                            j++;
+                        }
+                    }
+            }
+            div_principal.style.cssText += "border: solid;";
             console.log(ancho_largo);
 
             </script>
