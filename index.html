@@ -1,6 +1,7 @@
 <html>
     <head>
         <!Doctype html>
+
         <link rel="stylesheet" href="styles.css">
         <title>Ajedrez en JavaScript</title>
     </head>
@@ -10,102 +11,9 @@
                 </div>
             
 
-            <script>
-
-            //Creando Titulo
-            titulo = document.createElement('h1');
-            document.body.insertBefore(titulo,document.getElementById('container'));
-            titulo.innerHTML = "Ajedrez con JavaScript";
-
-
-            //Dandole dimensiones y estilos al div container/tablero principal y textos
-            titulo.style.cssText = 'text-align:center;';
-            div_principal = document.getElementById("container");
-            div_principal.style.cssText = 'margin:0 auto; background-color: #fafafa; max-width: 400px; width: 80%; min-height: 400px; hight: 80%;';
-
-
-            //Creacion de los cuadrados del tablero
-
-            //  let cuadrado = document.createElement('div');
-            //  cuadrado.className += 'cuadrado';
-
-            
-            let ancho_largo = container.getBoundingClientRect().width;  
-            let anchoen8 = (ancho_largo/8);
-            console.log(anchoen8);    //adaptar en el futuro//
-            //cuadrado.style.cssText ='';
 
 
 
-            for(let i=0;i<64;i++){
-                    cuadrado = document.createElement('div');
-                    cuadrado.className += 'cuadrado';
-                    container.appendChild(cuadrado);
-                    var estilo = document.getElementsByClassName('cuadrado'); 
-                    cuadrado.style.cssText = `width: ${anchoen8}; height: ${anchoen8}; float:left;`;
-                     console.log(estilo[i]);
-                    
-                    if(i<8){
-                        for(let j=0;j<i;j++){
-                            estilo[j].style.cssText += "background-color: #545454";
-                            j++;
-                        }
-                    }
-                    if(i<16){
-                        for(let j=9;j<i+1;j++){
-                            estilo[j].style.cssText += "background-color: #545454";
-                            j++;
-                        }
-                    }
-                    if(i<24){
-                        for(let j=16;j<i+1;j++){
-                            estilo[j].style.cssText += "background-color: #545454";
-                            j++;
-                        }
-                    }
-                    if(i<32){
-                        for(let j=25;j<i+1;j++){
-                            estilo[j].style.cssText += "background-color: #545454";
-                            j++;
-                        }
-                    }
-                    if(i<32){
-                        for(let j=25;j<i+1;j++){
-                            estilo[j].style.cssText += "background-color: #545454";
-                            j++;
-                        }
-                    }
-                    if(i<40){
-                        for(let j=32;j<i+1;j++){
-                            estilo[j].style.cssText += "background-color: #545454";
-                            j++;
-                        }
-                    }
-                    if(i<48){
-                        for(let j=41;j<i+1;j++){
-                            estilo[j].style.cssText += "background-color: #545454";
-                            j++;
-                        }
-                    }
-                    if(i<56){
-                        for(let j=48;j<i+1;j++){
-                            estilo[j].style.cssText += "background-color: #545454";
-                            j++;
-                        }
-                    }
-                    if(i<64){
-                        for(let j=57;j<i+1;j++){
-                            estilo[j].style.cssText += "background-color: #545454";
-                            j++;
-                        }
-                    }
-            }
-            div_principal.style.cssText += "border: solid;";
-            console.log(ancho_largo);
-
-            </script>
-
-
-            
+                <script type="text/javascript" src="script_principal.js"></script>
     </body>
 </html>
