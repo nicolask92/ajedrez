@@ -31,8 +31,9 @@
                     container.appendChild(cuadrado);
                     var estilo = document.getElementsByClassName('cuadrado'); 
                     cuadrado.style.cssText = `width: ${anchoen8}; height: ${anchoen8}; float:left;`;
-                    
-                    if(i<8){
+                    estilo[i].setAttribute('ondrop','drop(event)');
+                    estilo[i].setAttribute('ondragover','allowDrop(event)');
+                    if(i<9){
                         for(let j=1;j<i;j++){
                             estilo[j].style.cssText += "background-color: #545454";
                             j++;
@@ -91,18 +92,14 @@
                 ['','']
             ];
 
-            // Arrastre de las piezas
 
-             
-
-            
             //Agregar piezas al tablero
             function agregar_piezas() {
                 //Piezas Blancas
                 for( let k=0;k<16;k++){
                     if(k==0||k==7){
                     let estilo = document.getElementsByClassName('cuadrado');
-                    let pieza = document.createElement('img');
+                    var pieza = document.createElement('img');
                     estilo[k].appendChild(pieza);
                     pieza.src= 'imagenes/torre_b.png';
                     }
@@ -138,6 +135,9 @@
                     }
                     let imagen = document.querySelectorAll('img');
                     imagen[k].setAttribute('draggable',"true");
+                    imagen[k].setAttribute('class','imagen');
+                    imagen[k].setAttribute('ondragstart','drag(event)');
+                    imagen[k].setAttribute('id',`id${k}`);
                 }
                     //Piezas Negras
                     for( let k=48;k<64;k++){
@@ -181,11 +181,46 @@
 
                     let imagen = document.querySelectorAll('img');
                     imagen[k-32].setAttribute('draggable',"true");
-
+                    imagen[k-32].setAttribute('class','imagen');
+                    imagen[k-32].setAttribute('ondragstart','drag(event)');
+                    imagen[k-32].setAttribute('id',`id${k}`);
                 }
                 }
 
-
-                crear_tablero();
+ 
+            crear_tablero();
             agregar_piezas();
 
+            // Arrastre de las piezas
+
+            var todas_imagenes = document.getElementsByClassName('imagen');
+            var piezas_totales = todas_imagenes.length;
+            console.log(piezas_totales);
+
+            // Agregando el detector de eventos
+            for (var t = 0; t < todas_imagenes.length; t++) {
+                todas_imagenes[t].addEventListener('click', function(e){
+                    console.log(e.target);
+    
+                  })
+                }
+
+
+                function seleccion(e) {
+                    click = document.onclick
+                }
+
+
+                function allowDrop(ev) {
+                ev.preventDefault();
+                      }
+              
+                function drag(ev) {
+                ev.dataTransfer.setData("text", ev.target.id);
+                    }
+              
+                 function drop(ev) {
+                ev.preventDefault();
+                var data = ev.dataTransfer.getData("text");
+                ev.target.appendChild(document.getElementById(data));
+                    }
